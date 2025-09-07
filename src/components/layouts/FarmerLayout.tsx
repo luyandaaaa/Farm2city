@@ -35,6 +35,16 @@ export function FarmerLayout({ children, currentPage, selectedLang = "en", trans
     }
   }, [navigate]);
 
+  // Inject Chatbase chatbot script once
+  useEffect(() => {
+    if (!document.getElementById('RX4btQ2iFWpLnYWcJK_9P')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.chatbase.co/embed.min.js';
+      script.id = 'RX4btQ2iFWpLnYWcJK_9P';
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("farm2city_token");
     localStorage.removeItem("farm2city_role");
